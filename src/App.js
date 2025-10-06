@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import StudentForm from "./components/studentForm";
+import StudentSection from "./components/studentSection";
 
 function App() {
+  const [students, setStudents] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [isEditable, setIseditable] = useState("");
+  const [studentInfo, setStudentInfo] = useState("");
+  const [nextId, setNextId] = useState(0); // Initialize the counter
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StudentForm
+        editMode={editMode}
+        setStudents={setStudents}
+        students={students}
+        isEditable={isEditable}
+        setStudentInfo={setStudentInfo}
+        studentInfo={studentInfo}
+        nextId={nextId}
+        setNextId={setNextId}
+        setIseditable={setIseditable}
+        setEditMode={setEditMode}
+      />
+      <StudentSection
+        setStudentInfo={setStudentInfo}
+        setIseditable={setIseditable}
+        students={students}
+        setStudents={setStudents}
+        setEditMode={setEditMode}
+      />
     </div>
   );
 }

@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.student-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.list {
+  border: 1px solid black;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
