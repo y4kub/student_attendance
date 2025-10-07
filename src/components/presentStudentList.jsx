@@ -1,5 +1,8 @@
-const PresentStudentList = (props) => {
-  const { students, toggleList } = props;
+import { useContext } from "react";
+import { StudentCtx } from "../contexts/studentContext";
+
+const PresentStudentList = () => {
+  const { students, toggleList } = useContext(StudentCtx);
   const presentStudentList = students.filter((item) => item.isPresent === true);
   return (
     <div className="list present-students">
