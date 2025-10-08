@@ -2,18 +2,18 @@ import { useContext } from "react";
 import { StudentCtx } from "../contexts/studentContext";
 
 const StudentForm = () => {
-  const { editMode, studentInfo, submitHandler, changleStudentNameHandler } =
+  const { studentStates, submitHandler, changleStudentNameHandler } =
     useContext(StudentCtx);
 
   return (
     <form onSubmit={submitHandler}>
       <input
         type="text"
-        value={studentInfo}
+        value={studentStates.studentName}
         onChange={changleStudentNameHandler}
       />
       <button type="submit">
-        {editMode ? "Update Student" : " Add Student"}
+        {studentStates.editMode ? "Update Student" : " Add Student"}
       </button>
     </form>
   );
